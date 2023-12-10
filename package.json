@@ -2,6 +2,10 @@
   "name": "counter",
   "module": "index.ts",
   "type": "module",
+  "scripts": {
+    "serve": "stackr compile && bun run src/index.ts",
+    "clean:serve": "rm db.sqlite && stackr compile && bun run src/index.ts"
+  },
   "devDependencies": {
     "bun-types": "latest"
   },
