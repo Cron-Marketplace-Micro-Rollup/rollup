@@ -22,7 +22,7 @@ AAYUSH CODE START
 
 const rpcUrl = "https://goerli.base.org";
 const provider = new ethers.JsonRpcProvider(rpcUrl);
-const contractAddress = "0xDE18c74C753b7a96A24B995ac94222D2F7A4CCD8";
+const contractAddress = "0x56A6244A17FE8EDB45a46d98e0e0289bCA638AC5";
 const myContract = new ethers.Contract(contractAddress, abi.abi, provider);
 
 const wallet = new ethers.Wallet(
