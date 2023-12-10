@@ -188,15 +188,14 @@ function mintAction(
   // Implement the logic for the mint action
   // Update the state variable accordingly
 
-  const idx = findAccountIndexByAddress(inputs.creditActionsParams.to, state);
+  let idx = findAccountIndexByAddress(inputs.creditActionsParams.to, state);
   if (idx === -1) {
     createNewCreditAccount(inputs.creditActionsParams.to, state);
+    idx = state.credits.length - 1;
   }
 
-  const lastIdx = state.credits.length - 1;
-
-  state.credits[lastIdx].balance = (
-    BigInt(state.credits[lastIdx].balance) +
+  state.credits[idx].balance = (
+    BigInt(state.credits[idx].balance) +
     BigInt(inputs.creditActionsParams.amount)
   ).toString();
 
