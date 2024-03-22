@@ -16,10 +16,6 @@ import { StateMachine } from "@stackr/stackr-js/execution";
 import * as genesisState from "../genesis-state.json";
 import actionSchemaType from "./action-schema-type";
 
-/*
-AAYUSH CODE START
-*/
-
 const rpcUrl = "https://goerli.base.org";
 const provider = new ethers.JsonRpcProvider(rpcUrl);
 const contractAddress = "<BRIDGE_CONTRACT_ADDRESS>";
@@ -29,10 +25,6 @@ const wallet = new ethers.Wallet(
   "<BRIDGE_SIGNER>",
   provider
 );
-
-/*
-AAYUSH CODE END
-*/
 
 const rollup = async () => {
   const counterFsm = new StateMachine({
@@ -118,10 +110,6 @@ app.post("/", async (req: Request, res: Response) => {
   res.status(201).send({ acks });
 });
 
-/*
-AAYUSH CODE START
-*/
-
 app.post("/burn", async (req: Request, res: Response) => {
   const schema = actions.getSchema("cron-actions");
   if (!schema) {
@@ -158,17 +146,9 @@ app.post("/burn", async (req: Request, res: Response) => {
   }
 });
 
-/*
-AAYUSH CODE END
-*/
-
 app.listen(3000, () => {
   console.log("listening on port 3000");
 });
-
-/*
-AAYUSH CODE START
-*/
 
 try {
   myContract.on("Locked", async (user, amount, event) => {
@@ -233,7 +213,3 @@ const mint = async (amount: string, address: string) => {
     console.log("error");
   }
 };
-
-/*
-AAYUSH CODE END
-*/
